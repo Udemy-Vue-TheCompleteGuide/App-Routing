@@ -3,5 +3,5 @@ import User from "@/components/user/User";
 
 export const routes = [
     { name: 'home', path: '', component: Home },
-    { path: '/user', component: User}
+    { path: '/user/:id', component: User}
 ];
