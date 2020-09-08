@@ -37,20 +37,12 @@ export default {
   name: "UserStart",
   data() {
     return {
-      users: [
-        {id: 1, name: 'User 1'},
-        {id: 2, name: 'User 2'},
-        {id: 3, name: 'User 3'},
-      ]
+      users: this.$store.state.users
     }
   },
   methods: {
     gotoUserDetail(id) {
-      const user = this.users.find(e => { return e.id === Number(id) });
-      if (user) {
-        this.$router.push({name: 'user-detail', params: {id: String(user.id), name: user.name }});
-      } else
-        alert('Error');
+      this.$router.push({name: 'user-detail', params: {id: String(id)}});
     },
     gotoUserEdit(id) {
       this.$router.push({name: 'user-edit', params: {id}});

@@ -3,7 +3,7 @@
     <h3>User Details</h3>
     <div class="row">
       <div class="col-md-6">
-        <form>
+        <form v-if="user">
           <div class="form-group">
             <label for="userId">Id</label>
             <input type="text" class="form-control" id="userId" disabled :value="user.id">
@@ -25,20 +25,27 @@ export default {
   props: {
     id: String
   },
-  computed: {
-    user() {
-      switch (this.id) {
-        case '1': return { id: 1, name: 'User 1'};
-        case '2': return { id: 1, name: 'User 2'};
-        case '3': return { id: 1, name: 'User 3'};
-        default: return { id: 0, name: 'User 0'};
-      }
+  data() {
+    return {
+      user: null,
+      users: this.$store.state.users
     }
+  },
+  computed: {
   },
   methods: {
     gotoUserStart() {
       this.$router.push('/user-complete');
     }
+  },
+  created() {
+    const user = this.users.find(e => {
+      return e.id === Number(this.id)
+    });
+    if (!user) {
+      this.$router.push({name: 'error', params: {title: 'User not found', errorMessage: 'The user was not found.'}});
+    }
+    this.user = user;
   }
 }
 </script>

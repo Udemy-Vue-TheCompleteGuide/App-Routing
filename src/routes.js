@@ -15,6 +15,7 @@ const UserEdit = () => import(/* webpackChunkName: "group-foo" */ "@/components/
 const UserStart = () => import(/* webpackChunkName: "group-foo" */ "@/components/user/UserStart");
 
 import ErrorNotFound from "@/components/shared/ErrorNotFound";
+import Error from "@/components/shared/Error";
 
 export const routes = [
     {name: 'home', path: '', component: Home},
@@ -27,5 +28,6 @@ export const routes = [
         ]
     },
     {name: 'error-page-not-found', path: '/page-not-found', component: ErrorNotFound},
+    {name: 'error', path: '/error/:title/:errorMessage', component: Error, props: true},
     {path: '*', redirect: { name: 'error-page-not-found' } }
 ];
