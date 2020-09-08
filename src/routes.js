@@ -16,6 +16,6 @@ export const routes = [
             {name: 'user-edit', path: '/:id/edit', component: UserEdit}
         ]
     },
-    {name: 'error-page-not-found', path: 'page-not-found', component: ErrorNotFound},
+    {name: 'error-page-not-found', path: '/page-not-found', component: ErrorNotFound},
     {path: '*', redirect: { name: 'error-page-not-found' } }
 ];
