@@ -46,7 +46,11 @@ export default {
   },
   methods: {
     gotoUserDetail(id) {
-      this.$router.push({name: 'user-detail', params: {id}});
+      const user = this.users.find(e => { return e.id === Number(id) });
+      if (user) {
+        this.$router.push({name: 'user-detail', params: {id: String(user.id), name: user.name }});
+      } else
+        alert('Error');
     },
     gotoUserEdit(id) {
       this.$router.push({name: 'user-edit', params: {id}});

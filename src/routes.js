@@ -22,7 +22,7 @@ export const routes = [
     {
         name: 'user-complete', path: '/user-complete', component: UserComplete, children: [
             {name: 'user-start', path: '/', component: UserStart},
-            {name: 'user-detail', path: '/:id/detail', component: UserDetail},
+            {name: 'user-detail', path: '/:id/detail', component: UserDetail, props: true},
             {name: 'user-edit', path: '/:id/edit', component: UserEdit}
         ]
     },
