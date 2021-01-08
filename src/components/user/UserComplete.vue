@@ -16,5 +16,8 @@ export default {
 </script>
 
 <style scoped>
-
+/* Modify the speed of the animation */
+.animate__faster {
+  --animate-duration: 0.5s;
+}
 </style>
